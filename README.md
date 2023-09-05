@@ -48,8 +48,28 @@ cat inforam_trans.bed | perl -anle '$F[5] eq "+" and print' | bedtools groupby -
 6.3 Convert the transcritpome based nulceotide wise wave to codon wise wave
 python nuc2codon.transcriptome.mapping.py yeast.transcriptome.fa yeast_Riboseq_calbrited.nucle.wave yeast_Riboseq_calbrited.codon.wave
 6.4 Select most similar protein seq compare to the protein seq from AlphaFold
-python multivar_adjust_format_add_codon.py $codon_input/${F1}_bowtie_Riboseq.codon.wave $table_input/${F1}.geneid2name.table.txt $table_input/${F1}.genename2uniprot.tab.txt $input1 | tee $codon_input/${F1}.bowtie.Riboseq.codon.wave.adjusted.format.add.codon
+python multivar_adjust_format_add_codon.py yeast_bowtie_Riboseq.codon.wave yeast.geneid2name.table.txt yeast.genename2uniprot.tab.txt yeast | tee yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon
 6.5 Remove different length in Ribo-seq data
+python filter.different.length.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length
+6.6 Filter the low reads Ribo-seq data
+python filter_low_reads_multivarant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60
+6.7 Make the scaled the Ribo-seq footprints
+python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+
+
+Determination of Protein structure
+
+
+
+Association analysis between translation velocity and protein structure features
+
+1. Metagene analysis
+Merge charge,proline and reads together
+python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+metagene analysis for positive charge for all the organism with 95% confidence interval
+python metagene_charge_plot.py $codon_input/${F1}.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all $input1
+
+
 
 
 
