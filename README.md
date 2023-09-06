@@ -15,7 +15,7 @@ fastqc
 
 
 #### The example procedure
-We use publically available data published in pop et al. to illustrat the use of this pipeline.
+We use publically available data published in pop et al. to illustrate the use of this pipeline.
 
 #### Quantification of translation velocity from Ribo-seq dataset
 
