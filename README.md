@@ -178,6 +178,56 @@ done</code></pre>
 
 <pre><code>perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt</code></pre>
 
+<h2>Association Analysis Between Translation Velocity and Protein Structure Features</h2>
+
+<h3>1. Metagene Analysis</h3>
+
+<p>Perform metagene analysis:</p>
+
+<h4>1.1 Merge Charge, Proline, and Reads Together</h4>
+
+<p>Merge charge, proline, and reads together:</p>
+
+<pre><code>python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>1.2 Metagene Analysis for Positive Charge with 95% Confidence Interval</h4>
+
+<p>Perform metagene analysis for positive charge with a 95% confidence interval:</p>
+
+<pre><code>python metagene_charge_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>1.3 Metagene Analysis for Proline Residue with 95% Confidence Interval</h4>
+
+<p>Perform metagene analysis for proline residue with a 95% confidence interval:</p>
+
+<!-- Continue with the rest of your instructions -->
+
+<h3>2. Comparison of Translation Velocity Between Different Secondary Structure Elements in Diverse Organisms</h3>
+
+<p>Compare translation velocity between different secondary structure elements in diverse organisms:</p>
+
+<h4>2.1 Extract Secondary Structure for All the Genes</h4>
+
+<p>Extract secondary structure for all the genes:</p>
+
+<pre><code>python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt</code></pre>
+
+<h4>2.2 Make the Boxplot</h4>
+
+<p>Make the boxplot:</p>
+
+<pre><code>Rscript </code></pre>
+
+<h3>3. Partial Correlation Analysis</h3>
+
+<p>Perform partial correlation analysis:</p>
+
+<h4>3.1 Merge Codon Usage Frequency and Footprints Together for All the Genes</h4>
+
+<p>Merge codon usage frequency and footprints together for all the genes:</p>
+
+<pre><code>python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
 <!-- Continue with the rest of your instructions -->
 
 </html>
@@ -193,38 +243,6 @@ done</code></pre>
 
 
 
-Determination of codon usage frequence and protein structure features from AlphaFold
-
-1. Download the pdb format file from AlphaFold database of yeast\
-1.1 unzip the file\
-   
-tar –xvf UP000002311_559292_YEAST_v4.tar
-
-1.2 unzip all the pdb file\
-for i in *.pdb.gz ; do\
-  n=`basename $i .gz`\
-  gzip -dc $i > $n\
-  echo $n\
-done > output.txt
-
-2. Extract the positive charge and proline residue by pipinfor tool
-
-pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo
-
-3. Calculate the IDR score for all the proteins in yeast
-
-for pdb in *.pdb ; do\
-  fa=`basename $pdb .pdb`.fa\
-  python pdb2fa.py $pdb $fa\
-done
-
-for f in /home/bbian/Data_all/raw_data/Alpha-fold/yeast/*.fa ; do\
-        n=`basename $f`\
-        python iupred2a.py $f long >/home/bbian/Data_all/result/IDRs_calculate/iupred2a/yeast/$n.txt\
-done
-
-4. Calculate the local relative contact order and local absolute contac order\
-perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt
 
 
 Association analysis between translation velocity and protein structure features
