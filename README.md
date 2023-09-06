@@ -1,38 +1,64 @@
-# VeloPro
 
-## Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect and mammals
+<head>
+  <title>VeloPro</title>
+</head>
 
-### Introduction
+<body>
 
-Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that anable to conduct the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedure and protein structure deterimination procedure in detail with step-by-step explanations.
+<h1>VeloPro</h1>
 
-#### Software and Installation
-# Required software
-This pipeline was tested on NIG supercomputer at RIOS National Institute of Genetics. For most of tools, we installed via conda or bioconda,the following software is required:
+<h2>Introduction</h2>
+<p>Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals.</p>
 
-fastq-dump\
-fastq-dump is installed by the instruction from https://www.metagenomics.wiki/tools/short-read/ncbi-sra-file-format/sra-tools-install
-gffread\
-conda install - bioconda gffread
-fastqc\
-conda install fastqc
-cutadapt\
-conda install cutaddapt
-bowtie\
-conda install bowtie
-samtools\
-conda install samtools
-bedtools\
-conda install bedtools
+<h3>Introduction</h3>
+<p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables conducting the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure determination procedures in detail with step-by-step explanations.</p>
 
+<h4>Software and Installation</h4>
+<p><strong>Required Software:</strong></p>
+<p>This pipeline was tested on NIG supercomputer at RIOS National Institute of Genetics. For most of the tools, we installed via conda or bioconda, and the following software is required:</p>
 
+<ul>
+  <li>fastq-dump
+    <ul>
+      <li>fastq-dump is installed by following the instructions from <a href="https://www.metagenomics.wiki/tools/short-read/ncbi-sra-file-format/sra-tools-install">this link</a></li>
+    </ul>
+  </li>
+  <li>gffread
+    <ul>
+      <li>Install via conda: <code>conda install -c bioconda gffread</code></li>
+    </ul>
+  </li>
+  <li>fastqc
+    <ul>
+      <li>Install via conda: <code>conda install fastqc</code></li>
+    </ul>
+  </li>
+  <li>cutadapt
+    <ul>
+      <li>Install via conda: <code>conda install cutadapt</code></li>
+    </ul>
+  </li>
+  <li>bowtie
+    <ul>
+      <li>Install via conda: <code>conda install bowtie</code></li>
+    </ul>
+  </li>
+  <li>samtools
+    <ul>
+      <li>Install via conda: <code>conda install samtools</code></li>
+    </ul>
+  </li>
+  <li>bedtools
+    <ul>
+      <li>Install via conda: <code>conda install bedtools</code></li>
+    </ul>
+  </li>
+</ul>
 
+<h3>The Example Procedure</h3>
+<p>We use publicly available data published in Pop et al. to illustrate the use of this pipeline.</p>
 
-#### The example procedure
-We use publically available data published in pop et al. to illustrate the use of this pipeline.
-
-#### Quantification of translation velocity from Ribo-seq dataset
-
+<h3>Quantification of Translation Velocity from Ribo-seq Dataset</h3>
 
 <h2>1. Ribo-seq Data and Reference Genome Preparation</h2>
 
