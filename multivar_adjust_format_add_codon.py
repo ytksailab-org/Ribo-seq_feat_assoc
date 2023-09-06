@@ -6,10 +6,10 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio import pairwise2
 
-input_codon_wave = sys.argv[1]  # Human_K15_SRR1562539_codon.wave
-input_geneid2genename = sys.argv[2]  # geneID2genename.table.txt
-input_genename2uniprotid = sys.argv[3]  # human_genename2uniprotid.table.txt
-AlphafoldPH = sys.argv[4]
+input_codon_wave = sys.argv[1]  # yeast_bowtie_Riboseq.codon.wave
+input_geneid2genename = sys.argv[2]  # yeast.geneid2name.table.txt
+input_genename2uniprotid = sys.argv[3]  # yeast.genename2uniprot.tab.txt
+AlphafoldPH = sys.argv[4] #You path deposit AlphaFold proteins
 
 
 # Algorithm:
