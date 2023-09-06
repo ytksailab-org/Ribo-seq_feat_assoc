@@ -1,5 +1,7 @@
-
+<!DOCTYPE html>
+<html>
 <head>
+
   <title>VeloPro</title>
 </head>
 
