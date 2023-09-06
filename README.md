@@ -64,10 +64,25 @@ Determination of Protein structure
 Association analysis between translation velocity and protein structure features
 
 1. Metagene analysis
-Merge charge,proline and reads together
+1.1 Merge charge,proline and reads together
 python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
-metagene analysis for positive charge for all the organism with 95% confidence interval
-python metagene_charge_plot.py $codon_input/${F1}.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all $input1
+1.2 Metagene analysis for positive charge with 95% confidence interval
+python metagene_charge_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+1.3 Metagene analysis for proline residue with 95% confidence interval
+
+2. Comparison of translation velocity between different secondary structure elements in diverse organisms
+2.1 Extract secondary structure for all the genes
+python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt
+
+2. Partial correlation analysis
+2.1 Merge codon usage frequence and footprints together for all the genes
+python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+2.2 Merge rASA and footprints together for all the genes
+python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+
+
+
+
 
 
 
