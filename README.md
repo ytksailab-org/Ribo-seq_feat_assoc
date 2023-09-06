@@ -9,6 +9,9 @@ Translation velocity plays an important role iin modulating co-translational pro
 Software and Installation
 
 fastq-dump
+gffread
+fastqc
+
 
 
 The example procedure
@@ -16,8 +19,12 @@ We use publically available data published in pop et al. to illustrat the use of
 
 Quantification of translation velocity from Ribo-seq dataset
 
-1. Download raw FASTQ files from NCBI's sequence Read Archive (SRA) with accession number: SRR1688545 (https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1688545/SRR1688545) which contains ribosome protected footprints of Saccharomyces cerevisiae S288c.
+1. Ribo-seq data and reference genome preparation\
+1.1 Download raw FASTQ files from NCBI's sequence Read Archive (SRA) with accession number: SRR1688545 (https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1688545/SRR1688545) which contains ribosome protected footprints of Saccharomyces cerevisiae S288c.
 fastq-dump --gzip SRR1688545
+
+1.2 Download reference genome file and annotation file and generate transcriptome file
+gffread yeast.genomic.gff -g yeast.genomic.fa -w yeast.transcriptome.fa
 
 2. Ribo-seq quality check.
 fastqc -o ./quality_check/ -t 6 ./SRR1688545.fastq.gz
@@ -40,7 +47,7 @@ Rscript merge_reads.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/c
 5.5 Generate a coverage plot using precisely calibrated reads\
 Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage
 
-6. Convert the calibrated bam format file to normalized footprints\
+7. Convert the calibrated bam format file to normalized footprints\
 6.1 Convert the calibrated bam format file to bed format file containing reads counts at each position\
 perl countReads3Edge_calibrated.readscount.pl yeast.Ribo.seq_calibrated.bam > inforam_trans.bed positive_strand_info_trans.wig negative_strand_info_trans.wig\
 6.2 Convert the bed file to nuclotide wave in transcriptome mapping manner\
@@ -57,7 +64,39 @@ python filter_low_reads_multivarant.add.codon.py yeast.bowtie.Riboseq.codon.wave
 python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
 
 
-Determination of Protein structure
+Determination of codon usage frequence and protein structure features from AlphaFold
+
+Download the pdb format file from AlphaFold database of yeast\
+1. unzip the file
+tar –xvf UP000002311_559292_YEAST_v4.tar
+
+2. unzip all the pdb file
+for i in *.pdb.gz ; do\
+  n=`basename $i .gz`\
+  gzip -dc $i > $n\
+  echo $n\
+done > output.txt
+
+4. Extract the positive charge and proline residue by pipinfor tool
+
+pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo
+
+5. Calculate the IDR score for all the proteins in yeast
+
+for pdb in *.pdb ; do\
+  fa=`basename $pdb .pdb`.fa\
+  python pdb2fa.py $pdb $fa\
+done
+
+for f in /home/bbian/Data_all/raw_data/Alpha-fold/yeast/*.fa ; do\
+        n=`basename $f`\
+        python iupred2a.py $f long >/home/bbian/Data_all/result/IDRs_calculate/iupred2a/yeast/$n.txt\
+done
+
+6. Calculate the local relative contact order and local absolute contac order\
+perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt
+
+
 
 
 
@@ -100,9 +139,18 @@ python spearman_partial_correlation_nig_rASA.batch.py yeast.scaled.bowtie.Ribose
 3.11 Partial correlation for idrs\
 python spearman_partial_correlation_nig_idr.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
 3.12 Partial correlation for normalized contact order\
-python spearman_partial_correlation_nig_normalizedCO.batch.py .scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.13 Partial correlation for relative contact order\
-python spearman_partial_correlation_nig_relativeCO.batch.py $codon_input/${F1}.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+python spearman_partial_correlation_nig_normalizedCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.13 Partial correlation for local relative contact order\
+python spearman_partial_correlation_nig_relativeCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.14 Partial correlation for local absolute contact order\
+python spearman_partial_correlation_nig_absoluteCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.15 One sample t-test for all the features\
+python ttest_for_all.py
+
+
+
+
+
 
 
 
