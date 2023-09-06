@@ -9,13 +9,12 @@
 
 <h1>VeloPro</h1>
 
-<h2>Introduction</h2>
-<p>Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals.</p>
+## Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals.
 
-<h3>Introduction</h3>
+<h1>Introduction</h1>
 <p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables conducting the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure determination procedures in detail with step-by-step explanations.</p>
 
-<h4>Software and Installation</h4>
+<h1>Software and Installation</h1>
 <p><strong>Required Software:</strong></p>
 <p>This pipeline was tested on NIG supercomputer at RIOS National Institute of Genetics. For most of the tools, we installed via conda or bioconda, and the following software is required:</p>
 
@@ -57,16 +56,16 @@
   </li>
 </ul>
 
-<h3>The Example Procedure</h3>
+<h1>The Example Procedure</h1>
 <p>We use publicly available data published in Pop et al. to illustrate the use of this pipeline.</p>
 
-<h3>Quantification of Translation Velocity from Ribo-seq Dataset</h3>
+<h1>Quantification of Translation Velocity from Ribo-seq Dataset</h1>
 
 <h2>1. Ribo-seq Data and Reference Genome Preparation</h2>
 
 <h3>1.1 Download Raw FASTQ Files from NCBI's Sequence Read Archive (SRA)</h3>
 
-<p>To obtain the ribosome-protected footprints of Saccharomyces cerevisiae S288c, you can download the raw FASTQ files using following link and convert raw data to FASTQ format by the following command:</p>
+<p>To obtain the ribosome-protected footprints of Saccharomyces cerevisiae S288c, you can download the raw FASTQ files using following link and then convert raw data to FASTQ format by the following command:</p>
 
 <p>Access the data at this <a href="https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1688545/SRR1688545">link</a>.</p>
 
@@ -177,7 +176,7 @@
 
 <pre><code>python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h2>Determination of Protein Structure Features from AlphaFold</h2>
+<h1>Determination of Protein Structure Features from AlphaFold</h1>
 
 <h3>1. Download the PDB Format File from AlphaFold Database of Yeast</h3>
 
@@ -221,7 +220,7 @@ done</code></pre>
 
 <pre><code>perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt</code></pre>
 
-<h2>Association Analysis Between Translation Velocity and Protein Structure Features</h2>
+<h1>Association Analysis Between Translation Velocity and Protein Structure Features</h1>
 
 <h3>1. Metagene Analysis</h3>
 
