@@ -7,10 +7,16 @@
 Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that anable to conduct the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedure and protein structure deterimination procedure in detail with step-by-step explanations.
 
 #### Software and Installation
+# Required software
+This pipeline was tested on NIG supercomputer at RIOS. The following is required:
 
-fastq-dump
-gffread
-fastqc
+fastq-dump\
+gffread\
+fastqc\
+cutadapt\
+bowtie\
+samtools\
+bedtools\
 
 
 
