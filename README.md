@@ -9,7 +9,7 @@
 
 <h1>VeloPro</h1>
 
-## Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals.
+## Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals
 
 <h1>Introduction</h1>
 <p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables conducting the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure determination procedures in detail with step-by-step explanations.</p>
