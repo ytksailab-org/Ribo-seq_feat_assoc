@@ -66,22 +66,22 @@ python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.a
 
 Determination of codon usage frequence and protein structure features from AlphaFold
 
-Download the pdb format file from AlphaFold database of yeast\
-1. unzip the file
+1. Download the pdb format file from AlphaFold database of yeast\
+1.1 unzip the file\
 tar –xvf UP000002311_559292_YEAST_v4.tar
 
-2. unzip all the pdb file
+1.2 unzip all the pdb file\
 for i in *.pdb.gz ; do\
   n=`basename $i .gz`\
   gzip -dc $i > $n\
   echo $n\
 done > output.txt
 
-4. Extract the positive charge and proline residue by pipinfor tool
+2. Extract the positive charge and proline residue by pipinfor tool
 
 pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo
 
-5. Calculate the IDR score for all the proteins in yeast
+3. Calculate the IDR score for all the proteins in yeast
 
 for pdb in *.pdb ; do\
   fa=`basename $pdb .pdb`.fa\
@@ -93,7 +93,7 @@ for f in /home/bbian/Data_all/raw_data/Alpha-fold/yeast/*.fa ; do\
         python iupred2a.py $f long >/home/bbian/Data_all/result/IDRs_calculate/iupred2a/yeast/$n.txt\
 done
 
-6. Calculate the local relative contact order and local absolute contac order\
+4. Calculate the local relative contact order and local absolute contac order\
 perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt
 
 
