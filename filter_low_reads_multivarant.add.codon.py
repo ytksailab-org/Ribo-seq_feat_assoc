@@ -10,7 +10,6 @@ from Bio.PDB.DSSP import DSSP
 #python filter_low_reads_multivarant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60
 
 input_data_wave = sys.argv[1]
-#output_zero_name = sys.argv[2]
 output_new_wave = sys.argv[2]
 percent_high_zero = 0
 percent_low_zero = 0
