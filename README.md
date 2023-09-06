@@ -134,7 +134,7 @@ We use publically available data published in pop et al. to illustrat the use of
 
 <pre><code>python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h2>Determination of Codon Usage Frequency and Protein Structure Features from AlphaFold</h2>
+<h2>Determination of Protein Structure Features from AlphaFold</h2>
 
 <h3>1. Download the PDB Format File from AlphaFold Database of Yeast</h3>
 
