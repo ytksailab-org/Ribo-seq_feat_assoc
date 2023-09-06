@@ -3,7 +3,7 @@
 # Recording the position where the 3' end of each read is mapped as a WIG file
 # 
 # usage:
-# ./countReads3Edge_trans_map_use.pl SRR2340141removetajima.sort.bam > inforam_trans.bed positive_strand_info_trans.wig negative_strand_info_trans.wig
+# perl countReads3Edge_calibrated.readscount.pl yeast.Ribo.seq_calibrated.bam > inforam_trans.bed positive_strand_info_trans.wig negative_strand_info_trans.wig
 
 use strict;
 
