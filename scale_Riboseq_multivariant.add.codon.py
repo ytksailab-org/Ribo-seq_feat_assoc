@@ -7,7 +7,7 @@ from Bio.Seq import Seq
 from Bio.PDB import PDBParser
 from Bio.PDB.DSSP import DSSP
 
-#python normalization.py new_outputcodon_wave40.out.codon.wave normalization_codon.txt
+#python python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
 
 input_data_wave = sys.argv[1]
 #output_zero_name = sys.argv[2]
