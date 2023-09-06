@@ -7,7 +7,7 @@ from Bio.Seq import Seq
 from Bio.PDB import PDBParser
 from Bio.PDB.DSSP import DSSP
 
-#python filter_low_reads_multivarant.py multi.variant.codon.wave.adjusted.format filtered.multi.variant.codon.wave.adjusted.format
+#python filter_low_reads_multivarant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60
 
 input_data_wave = sys.argv[1]
 #output_zero_name = sys.argv[2]
@@ -64,20 +64,11 @@ with open(input_data_wave) as f:
             #print(outdata, file=open(output_new_wave, "a"))
             print("{}\t{}\t{}\t{}".format(line[0], line[1], line[2], line[3],),file=open(output_new_wave, "a"))
 
-            #outdata = [genome_id,gene_id,position,readsnew,codon,amino_seq]
-            #print(outdata, file=open(output_new_wave, "a"))
-            #writer.writerow(outdata)
-            #with open(output_new_wave, mode='w') as output:
+
 
 
     print(percent_high_zero,percent_low_zero)
 
-#with open(output_new_wave, mode='w') as output:
-    #output.write("{}\t{}\t{}\t{}\t{}\n".format(genome_id, gene_id, position, readsnew, codon, amino_seq, )
-#print(highzero_namelist, file=open(output_zero_name, "a"))
-
-
-        #print(percent_higher,percent_lower, file= open(out_put_data,"a"))
 
 
 
