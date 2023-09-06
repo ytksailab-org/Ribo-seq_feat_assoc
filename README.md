@@ -8,15 +8,23 @@ Translation velocity plays an important role in modulating co-translational prot
 
 #### Software and Installation
 # Required software
-This pipeline was tested on NIG supercomputer at RIOS. The following is required:
+This pipeline was tested on NIG supercomputer at RIOS National Institute of Genetics. For most of tools, we installed via conda or bioconda,the following software is required:
 
 fastq-dump\
+fastq-dump is installed by the instruction from https://www.metagenomics.wiki/tools/short-read/ncbi-sra-file-format/sra-tools-install
 gffread\
+conda install - bioconda gffread
 fastqc\
+conda install fastqc
 cutadapt\
+conda install cutaddapt
 bowtie\
+conda install bowtie
 samtools\
+conda install samtools
 bedtools\
+conda install bedtools
+
 
 
 
