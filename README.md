@@ -228,6 +228,48 @@ done</code></pre>
 
 <pre><code>python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
+<h4>3.2 Merge rASA and Footprints Together for All the Genes</h4>
+
+<p>Merge rASA and footprints together for all the genes:</p>
+
+<pre><code>python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.3 Merge IDRs and Footprints Together for All the Genes</h4>
+
+<p>Merge IDRs (Intrinsically Disordered Regions) and footprints together for all the genes:</p>
+
+<pre><code>python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.4 Contact Order Normalization</h4>
+
+<p>Perform contact order normalization:</p>
+
+<pre><code>python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt</code></pre>
+
+<h4>3.5 Merge Normalized Contact Order Normalization and Footprints</h4>
+
+<p>Merge normalized contact order normalization and footprints for all the genes:</p>
+
+<pre><code>python normalized_CO_counts_merge.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.6 Merge Local Relative Contact Order and Footprints</h4>
+
+<p>Merge local relative contact order and footprints for all the genes:</p>
+
+<pre><code>python relative_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.7 Merge Local Absolute Contact Order and Footprints</h4>
+
+<p>Merge local absolute contact order and footprints for all the genes:</p>
+
+<pre><code>python absolute_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.8 Merge All the Data Together</h4>
+
+<p>Merge all the data together:</p>
+
+<pre><code>python partial_correlation_merge_batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
 <!-- Continue with the rest of your instructions -->
 
 </html>
