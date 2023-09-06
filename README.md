@@ -65,7 +65,7 @@
 
 <h3>1.1 Download Raw FASTQ Files from NCBI's Sequence Read Archive (SRA)</h3>
 
-<p>To obtain the ribosome-protected footprints of Saccharomyces cerevisiae S288c, you can download the raw FASTQ files using following link and then convert raw data to FASTQ format by the following command:</p>
+<p>To obtain the ribosome-protected footprints of Saccharomyces cerevisiae S288c, you can download the raw reads file using following link and then convert raw data to FASTQ format by the following command:</p>
 
 <p>Access the data at this <a href="https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1688545/SRR1688545">link</a>.</p>
 
