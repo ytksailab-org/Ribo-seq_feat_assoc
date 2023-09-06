@@ -270,7 +270,49 @@ done</code></pre>
 
 <pre><code>python partial_correlation_merge_batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<!-- Continue with the rest of your instructions -->
+<h4>3.9 Partial Correlation for Codon Usage Frequency</h4>
+
+<p>Perform partial correlation analysis for codon usage frequency:</p>
+
+<pre><code>python spearman_partial_correlation_nig_codonusage.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.10 Partial Correlation for ASA (Accessible Surface Area)</h4>
+
+<p>Perform partial correlation analysis for ASA:</p>
+
+<pre><code>python spearman_partial_correlation_nig_rASA.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.11 Partial Correlation for IDRs (Intrinsically Disordered Regions)</h4>
+
+<p>Perform partial correlation analysis for IDRs:</p>
+
+<pre><code>python spearman_partial_correlation_nig_idr.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.12 Partial Correlation for Normalized Contact Order</h4>
+
+<p>Perform partial correlation analysis for normalized contact order:</p>
+
+<pre><code>python spearman_partial_correlation_nig_normalizedCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.13 Partial Correlation for Local Relative Contact Order</h4>
+
+<p>Perform partial correlation analysis for local relative contact order:</p>
+
+<pre><code>python spearman_partial_correlation_nig_relativeCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.14 Partial Correlation for Local Absolute Contact Order</h4>
+
+<p>Perform partial correlation analysis for local absolute contact order:</p>
+
+<pre><code>python spearman_partial_correlation_nig_absoluteCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
+
+<h4>3.15 One Sample t-test for All the Features</h4>
+
+<p>Perform a one-sample t-test for all the features:</p>
+
+<pre><code>python ttest_for_all.py</code></pre>
+
+<!-- You can continue with additional instructions as needed -->
 
 </html>
 
