@@ -76,11 +76,45 @@ python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq
 2.2 Make the boxplot\
 Rscript 
 
-2. Partial correlation analysis\
-2.1 Merge codon usage frequence and footprints together for all the genes\
+3. Partial correlation analysis\
+3.1 Merge codon usage frequence and footprints together for all the genes\
 python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-2.2 Merge rASA and footprints together for all the genes\
+3.2 Merge rASA and footprints together for all the genes\
 python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.3 Merge IDRs and footprints together for all the genes\
+python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.4 Contact order normalization\
+python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt\
+3.5 Merge normalized Contact order normalization and footprints for all the genes\
+python normalized_CO_counts_merge.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.6 Merge local relative contact order and footprints for all the genes\
+python relative_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.7 Merge local absoluate contact order and footprints for all the genes\
+python absolute_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.8 Merge all the data together\
+python partial_correlation_merge_batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.9 Partial correlation for codon usage frequency\
+python spearman_partial_correlation_nig_codonusage.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.10 Partial correlation for ASA\
+python spearman_partial_correlation_nig_rASA.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.11 Partial correlation for idrs\
+python spearman_partial_correlation_nig_idr.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.12 Partial correlation for normalized contact order\
+python spearman_partial_correlation_nig_normalizedCO.batch.py .scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
+3.13 Partial correlation for relative contact order\
+python spearman_partial_correlation_nig_relativeCO.batch.py $codon_input/${F1}.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
