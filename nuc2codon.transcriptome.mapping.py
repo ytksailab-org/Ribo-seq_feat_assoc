@@ -5,10 +5,10 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 
 #usage
-#python nuc2codon_RNA_Riboseq_for_Ribo_remove_interalstopcodon.py arabidopsis_transcriptome.fa nucleotide.wave.txt output.codon.wave.txt
-input_fasta = sys.argv[1]  # arabidopsis_transcriptome.fa
-input_nuc_wave = sys.argv[2]  # nucleotide.wave.txt
-out_codon_wave = sys.argv[3]
+#python nuc2codon.transcriptome.mapping.py yeast.transcriptome.fa yeast_Riboseq_calbrited.nucle.wave yeast_Riboseq_calbrited.codon.wave
+input_fasta = sys.argv[1]  # yeast.transcriptome.fa
+input_nuc_wave = sys.argv[2]  #yeast_Riboseq_calbrited.nucle.wave
+out_codon_wave = sys.argv[3]  #yeast_Riboseq_calbrited.codon.wave
 
 csv.field_size_limit(100000000000)
 record_dict = SeqIO.to_dict(SeqIO.parse(input_fasta, 'fasta'))
