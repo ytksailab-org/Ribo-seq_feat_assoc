@@ -312,9 +312,6 @@ done</code></pre>
 
 <pre><code>python ttest_for_all.py</code></pre>
 
-<!-- You can continue with additional instructions as needed -->
-
-</html>
 
 
 
@@ -329,52 +326,6 @@ done</code></pre>
 
 
 
-Association analysis between translation velocity and protein structure features
-
-1. Metagene analysis\
-1.1. Merge charge,proline and reads together\
-python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-1.2 Metagene analysis for positive charge with 95% confidence interval\
-python metagene_charge_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-1.3 Metagene analysis for proline residue with 95% confidence interval
-
-2. Comparison of translation velocity between different secondary structure elements in diverse organisms\
-2.1 Extract secondary structure for all the genes\
-python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt
-2.2 Make the boxplot\
-Rscript 
-
-3. Partial correlation analysis\
-3.1 Merge codon usage frequence and footprints together for all the genes\
-python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.2 Merge rASA and footprints together for all the genes\
-python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.3 Merge IDRs and footprints together for all the genes\
-python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.4 Contact order normalization\
-python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt\
-3.5 Merge normalized Contact order normalization and footprints for all the genes\
-python normalized_CO_counts_merge.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.6 Merge local relative contact order and footprints for all the genes\
-python relative_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.7 Merge local absoluate contact order and footprints for all the genes\
-python absolute_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.8 Merge all the data together\
-python partial_correlation_merge_batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.9 Partial correlation for codon usage frequency\
-python spearman_partial_correlation_nig_codonusage.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.10 Partial correlation for ASA\
-python spearman_partial_correlation_nig_rASA.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.11 Partial correlation for idrs\
-python spearman_partial_correlation_nig_idr.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.12 Partial correlation for normalized contact order\
-python spearman_partial_correlation_nig_normalizedCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.13 Partial correlation for local relative contact order\
-python spearman_partial_correlation_nig_relativeCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.14 Partial correlation for local absolute contact order\
-python spearman_partial_correlation_nig_absoluteCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all\
-3.15 One sample t-test for all the features\
-python ttest_for_all.py
 
 
 
