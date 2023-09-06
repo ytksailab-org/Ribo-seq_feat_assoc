@@ -7,7 +7,7 @@ from Bio.Seq import Seq
 from Bio.PDB import PDBParser
 from Bio.PDB.DSSP import DSSP
 
-#python filter_low_reads_multivarant.py multi.variant.codon.wave.adjusted.format filtered.multi.variant.codon.wave.adjusted.format
+#python filter.different.length.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length
 
 input_data_wave = sys.argv[1]
 
