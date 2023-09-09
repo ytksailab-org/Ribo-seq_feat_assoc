@@ -44,6 +44,11 @@
       <li>Install via conda: <code>conda install bowtie</code></li>
     </ul>
   </li>
+    <li>EMBOSS
+    <ul>
+      <li>Install via bioconda: <code>conda install -c bioconda emboss</code></li>
+    </ul>
+  </li>
   <li>samtools
     <ul>
       <li>Install via conda: <code>conda install samtools</code></li>
