@@ -26,7 +26,7 @@
   </li>
   <li>gffread
     <ul>
-      <li>Install via conda: <code>conda install -c bioconda gffread</code></li>
+      <li>Install via bioconda: <code>conda install -c bioconda gffread</code></li>
     </ul>
   </li>
   <li>fastqc
