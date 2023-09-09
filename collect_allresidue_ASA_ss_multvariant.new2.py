@@ -13,7 +13,7 @@ from Bio.PDB import PDBParser
 from Bio.PDB.DSSP import DSSP
 
 
-#python collect_allresidue_ASA.py normalization.codon.wave collect_all_residue_ASA_use.txt
+#python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt
 
 
 input_data_wave = sys.argv[1]
@@ -35,10 +35,10 @@ with open(input_data_wave) as f:
         structure_3 = []
         structure_4 = []
 
-        pdbfile1 = Path("/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid))
+        pdbfile1 = Path("/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid))
         if not pdbfile1.is_file():
             continue
-        pdbfile = "/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid)
+        pdbfile = "/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid)
         p = PDBParser()
         structure = p.get_structure("pdbfile", pdbfile)
         model = structure[0]
