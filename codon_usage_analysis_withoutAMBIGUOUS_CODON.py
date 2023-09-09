@@ -48,7 +48,7 @@ with open(input_codon_wave) as f:
             for i in range(len(count_reads)):
                 if codon_frequency[i] != 'AMBIGUOUS_CODON':
                     reads_frequency = ("{}\t{}".format(count_reads[i], codon_frequency[i], ))
-                print(reads_frequency, file=open("/home/bbian/Data_all_calibrate/result/merge_reads_codonUsage/"+input_path+"/%s.txt" % uniprotid, "a"))
+                print(reads_frequency, file=open("/Your/work/path/merge_reads_codonUsage/"+input_path+"/%s.txt" % uniprotid, "a"))
         else:
             continue
 
