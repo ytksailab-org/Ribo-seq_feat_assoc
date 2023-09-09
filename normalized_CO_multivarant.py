@@ -10,7 +10,7 @@ import csv
 import re
 import os
 from pathlib import Path
-# python normalized_CO_test.py normalized_genename_yeast_K15_Riboseq.codon.wave.txt out 2>log.txt
+#python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt
 
 
 input_codon_wave = sys.argv[1]
@@ -37,13 +37,13 @@ with open(input_codon_wave) as f:
     for line2 in f.readlines():
         liness = line2.split()
         geneid = liness[0]
-        contactfile= Path("/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid))
+        contactfile= Path("/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid))
         if not contactfile.is_file():
             continue
-        contactfile = "/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid)
+        contactfile = "/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid)
         abs_co = []
         rel_co = []
-        #chargefile = "/home/bbian/EMBOSS_conda/Ecoli_pepinfo/AF-{}-F1-model_v2.pdb.pepinfo".format(uniprotid)
+
         with open(contactfile,"r") as contact:
             reader2 = csv.reader(contact, delimiter='\t')
             for row2 in reader2:
@@ -78,10 +78,10 @@ with open(input_codon_wave) as f:
     for line2 in f.readlines():
         liness = line2.split()
         geneid = liness[0]
-        contactfile= Path("/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid))
+        contactfile= Path("/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid))
         if not contactfile.is_file():
             continue
-        contactfile = "/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid)
+        contactfile = "/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb.contact.order.fast.use".format(geneid)
         abs_co = []
         rel_co = []
         with open(contactfile, "r") as contact1:
