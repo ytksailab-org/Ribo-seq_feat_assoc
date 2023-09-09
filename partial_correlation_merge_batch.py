@@ -10,7 +10,7 @@ import csv
 import re
 import os
 from pathlib import Path
-# python normalized_CO_counts_merge.py normalized_genename_yeast_K15_Riboseq.codon.wave.txt
+
 
 input_data_wave = sys.argv[1]
 input_path = sys.argv[2]
@@ -22,15 +22,15 @@ with open(input_data_wave) as f:
         line1 = line.split()
         geneid = line1[0]
         count_reads = line1[2].split(',')
-        #my_file = Path("/home/bbian/Data_all_calibrate/result/CO_normalization/"+input_path+"/{}.norm.txt".format(geneid))
-        my_file1 = Path("/home/bbian/Data_all_calibrate/result/extract_ASA_each_gene_correlation/"+input_path+"/{}.txt".format(geneid))
-        my_file2 = Path("/home/bbian/Data_all_calibrate/result/merge_idrs_reads/"+input_path+"/{}.txt".format(geneid))
-        my_file3 = Path("/home/bbian/Data_all_calibrate/result/merge_reads_codonUsage/"+input_path+"/{}.txt".format(geneid))
-        my_file4 = Path("/home/bbian/Data_all_calibrate/result/normalized_absolute_contact_order/"+input_path+"/{}.txt".format(geneid))
-        my_file5 = Path("/home/bbian/Data_all_calibrate/result/relative_contact_order/"+input_path+"/{}.txt".format(geneid))
-        my_file6 = Path("/home/bbian/Data_all_calibrate/result/absolute_contact_order/"+input_path+"/{}.txt".format(geneid))
+        
+        my_file1 = Path("/Your/work/path/result/extract_ASA_each_gene_correlation/"+input_path+"/{}.txt".format(geneid))
+        my_file2 = Path("/Your/work/path/result/merge_idrs_reads/"+input_path+"/{}.txt".format(geneid))
+        my_file3 = Path("/Your/work/path/result/merge_reads_codonUsage/"+input_path+"/{}.txt".format(geneid))
+        my_file4 = Path("/Your/work/path/result/normalized_absolute_contact_order/"+input_path+"/{}.txt".format(geneid))
+        my_file5 = Path("/Your/work/path/result/relative_contact_order/"+input_path+"/{}.txt".format(geneid))
+        my_file6 = Path("/Your/work/path/result/absolute_contact_order/"+input_path+"/{}.txt".format(geneid))
 
-        #my_file = Path("/Users/bianbian/Desktop/riboseq_tools/translation/normalization_counts_merge/{}.norm.txt".format(geneid))
+        
 
         if not my_file1.is_file():
             continue
@@ -93,6 +93,6 @@ with open(input_data_wave) as f:
         if len(ASA) == len(idr) == len(codonUsage)-1 == len(count_reads) - 1==len(normalized_CO)==len(relative_CO)==len(absolute_CO):
             for i in range(len(count_reads) - 1):
                 daf = ("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(count_reads[i], ASA[i], idr[i], codonUsage[i], normalized_CO[i], relative_CO[i], absolute_CO[i], ))
-                print(daf, file=open("/home/bbian/Data_all_calibrate/result/partial_test/"+input_path+"/%s.txt" % geneid, "a"))
+                print(daf, file=open("/Your/work/path/result/partial_test/"+input_path+"/%s.txt" % geneid, "a"))
         else:
             continue
