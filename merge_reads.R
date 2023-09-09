@@ -32,7 +32,7 @@ if(!dir.exists(in_path)){
 # check if bam files
 in_files <- list.files(
   path = in_path, 
-  pattern = 'Human_Hela_M_Riboseq_[0-9]{2}_calibrated.bam',
+  pattern = 'yeast_Riboseq_[0-9]{2}_calibrated.bam',
   ignore.case = TRUE
 )
 if(length(in_files) < 1){
