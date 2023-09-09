@@ -5,7 +5,7 @@ import sys
 import csv
 import re
 import os
-#python 0129.py normalization.codon.wave
+
 input_data_wave = sys.argv[1]
 input_path = sys.argv[2]
 #data2=[]
@@ -15,8 +15,7 @@ with open(input_data_wave) as f:
         line = line.split()
         geneid = line[0]
         try:
-            #with open("/home/bbian/Data_all_calibrate/result/relative_contact_order/"+input_path+"/{}.txt".format(geneid),"r") as f:
-            with open("/home/bbian/Data_all_calibrate/result/partial_test/"+input_path+"/{}.txt".format(geneid), "r") as f:
+            with open("/Your/work/path/result/partial_test/"+input_path+"/{}.txt".format(geneid), "r") as f:
                 a = pd.read_csv(f,sep='\t',header =None, names= ["ReadsCount","RelativeASA", "idr", "codon_usage", "normalized_CO", "relative_CO", "absolute_CO"])
                 a1 = a.dropna()
                 data1= pg.partial_corr(data=a1, x='ReadsCount', y='absolute_CO', covar=['idr', 'codon_usage', 'normalized_CO', 'relative_CO','RelativeASA'],method = 'spearman').round(3)
@@ -27,7 +26,7 @@ with open(input_data_wave) as f:
                 #print(data1.iat[0, 1])
                 #print(geneid,data2)
             daf = ("{}\t{}".format(geneid, shel, ))
-            print(daf, file=open("/home/bbian/Data_all_calibrate/result/partial_test/spearman_partial/"+input_path+".partial.single_gene_corre_absoluteCO.txt", "a"))
+            print(daf, file=open("/Your/work/path/result/partial_test/spearman_partial/"+input_path+".partial.single_gene_corre_absoluteCO.txt", "a"))
         except IOError:
             continue
 
