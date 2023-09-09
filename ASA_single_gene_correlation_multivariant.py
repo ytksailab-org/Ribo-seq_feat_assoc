@@ -32,10 +32,10 @@ with open(input_data_wave) as f:
         structure_3 = []
         structure_4 = []
 
-        pdbfile1 = Path("/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid))
+        pdbfile1 = Path("/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid))
         if not pdbfile1.is_file():
             continue
-        pdbfile = "/home/bbian/Data_all/raw_data/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid)
+        pdbfile = "/Your/work/path/Alpha-fold/"+input_path+"/AF-{}-F1-model_v2.pdb".format(geneid)
         p = PDBParser()
         structure = p.get_structure("pdbfile", pdbfile)
         model = structure[0]
@@ -54,6 +54,6 @@ with open(input_data_wave) as f:
         if len(structure_1)==len(amino)-1:
                 for i in range(len(amino)-1):
                     daf = ("{}\t{}".format(structure_4[i],reads[i],))
-                    print(daf,file=open("/home/bbian/Data_all_calibrate/result/extract_ASA_each_gene_correlation/"+input_path+"/%s.txt" % geneid, "a"))
+                    print(daf,file=open("/Your/work/path/result/extract_ASA_each_gene_correlation/"+input_path+"/%s.txt" % geneid, "a"))
         else:
             continue
