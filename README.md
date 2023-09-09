@@ -214,9 +214,9 @@ done > output.txt</code></pre>
   python pdb2fa.py $pdb $fa
 done</code></pre>
 
-<pre><code>for f in /home/bbian/Data_all/raw_data/Alpha-fold/yeast/*.fa ; do
+<pre><code>for f in /Your/work/path/Alpha-fold/yeast/*.fa ; do
         n=`basename $f`
-        python iupred2a.py $f long >/home/bbian/Data_all/result/IDRs_calculate/iupred2a/yeast/$n.txt
+        python iupred2a.py $f long >/Your/work/path/IDRs_calculate/iupred2a/yeast/$n.txt
 done</code></pre>
 
 <h3>4. Calculate the Local Relative Contact Order and Local Absolute Contact Order</h3>
