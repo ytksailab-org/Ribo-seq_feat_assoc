@@ -9,7 +9,7 @@ from Bio import pairwise2
 input_codon_wave = sys.argv[1]  # yeast_bowtie_Riboseq.codon.wave
 input_geneid2genename = sys.argv[2]  # yeast.geneid2name.table.txt
 input_genename2uniprotid = sys.argv[3]  # yeast.genename2uniprot.tab.txt
-AlphafoldPH = sys.argv[4] #You path deposit AlphaFold proteins
+AlphafoldPH = sys.argv[4] #Your path deposit AlphaFold proteins
 
 
 # Algorithm:
