@@ -27,7 +27,7 @@ with open(input_data_wave) as f:
         charges = []
         reads_counts = []
 
-        my_file = Path("/home/bbian/Data_all_calibrate/result/merge_charge_reads_each_gene/"+input_path+"/{}.txt".format(geneid))
+        my_file = Path("/Your/work/path/result/merge_charge_reads_each_gene/"+input_path+"/{}.txt".format(geneid))
         if not my_file.is_file():
             continue
         with open(my_file, "r") as t:
@@ -91,7 +91,7 @@ plt.axvline(x=30, color='gray', linestyle='--')
 plt.legend()
 
 # Save or show the plot
-plt.savefig("/home/bbian/Data_all_calibrate/result/metagene_plot/"+input_path+".charge.metagene_plot.png")
+plt.savefig("/Your/work/path/result/metagene_plot/"+input_path+".charge.metagene_plot.png")
 plt.show()
 
 
