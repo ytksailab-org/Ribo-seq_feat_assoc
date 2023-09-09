@@ -201,7 +201,7 @@ done > output.txt</code></pre>
 
 <h3>2. Extract the Positive Charge and Proline Residue</h3>
 
-<p>Extract the positive charge and proline residue using the pipinfor tool:</p>
+<p>Extract the positive charge and proline residue using the EMBOSS pipinfor tool:</p>
 
 <pre><code>pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo</code></pre>
 
