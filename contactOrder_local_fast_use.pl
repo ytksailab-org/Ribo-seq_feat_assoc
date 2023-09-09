@@ -2,7 +2,7 @@
 
 # contactOrder.pl
 # computes contact order of (protein) structures from PDB files
-# Author: Eric Alm <ealm3141@users.sourceforge.net>
+# Modified the script from Eric Alm <ealm3141@users.sourceforge.net>
 
 use strict;
 
