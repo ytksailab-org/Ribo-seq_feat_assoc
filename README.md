@@ -246,6 +246,7 @@ done</code></pre>
 <h4>1.3 Metagene Analysis for Proline Residue with 95% Confidence Interval</h4>
 
 <p>Perform metagene analysis for proline residue with a 95% confidence interval:</p>
+<pre><code>python metagene_proline_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <!-- Continue with the rest of your instructions -->
 
