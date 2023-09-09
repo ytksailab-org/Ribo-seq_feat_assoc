@@ -107,7 +107,19 @@
 
 <h2>5. Calibration of RPFs</h2>
 
-<h3>5.1 Split Reads by Length and Assign 5' End</h3>
+<h3>5.1 Determine the genes with good expression levels in yeast dataset
+  
+<p>Determine the genes with good expression levels in this yeast dataset:</p>
+
+<pre><code>Rscript highest_expressed_genes.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/yeast_Riboseq.sort.bam /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.genome.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 0.1</code></pre>
+
+<h3>5.2 Prepare annotation files to include 50 nucleotides upstream and downstream that start and stop codon region
+  
+<p> Prepare the BED file:</p>
+
+<pre><code>Rscript prepare_coverage.R /home/bbian/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes.bed </code></pre>
+
+<h3>5.3 Split Reads by Length and Assign 5' End</h3>
 
 <p>Split reads by length and perform 5' assignment for read lengths of 27 to 31 nucleotides:</p>
 
