@@ -81,7 +81,7 @@
 
 <p>Download the reference genome and annotation files for Saccharomyces cerevisiae from the <a href="https://www.ncbi.nlm.nih.gov/genome/?term=Saccharomyces+cerevisiae">NCBI Genome website</a>.</p>
 
-<p>Generate a transcriptome file using the following command:</p>
+<p>Generate a reference transcriptome file using the following command:</p>
 
 <pre><code>gffread yeast.genomic.gff -g yeast.genomic.fa -w yeast.transcriptome.fa</code></pre>
 
@@ -107,13 +107,13 @@
 
 <h2>5. Calibration of RPFs</h2>
 
-<h3>5.1 Determine the genes with good expression levels in yeast dataset End</h3>
+<h3>5.1 Determine the genes with good expression levels in yeast dataset </h3>
   
 <p>Determine the genes with good expression levels in this yeast dataset:</p>
 
 <pre><code>Rscript highest_expressed_genes.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/yeast_Riboseq.sort.bam /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.genome.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 0.1</code></pre>
 
-<h3>5.2 Prepare annotation files to include 50 nucleotides upstream and downstream that start and stop codon region End</h3>
+<h3>5.2 Prepare annotation files to include 50 nucleotides upstream and downstream that start and stop codon region </h3>
   
 <p> Prepare the BED file:</p>
 
@@ -149,53 +149,54 @@
 
 <pre><code>Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage</code></pre>
 
-<h2>6. Convert the Calibrated BAM Format File to Normalized Footprints</h2>
+<h2>6. Convert the Calibrated BAM Format File to Scaled Footprints</h2>
 
-<h3>6.1 Convert the Calibrated BAM Format File to BED Format File</h3>
+<h3>6.1 Convert the Merged Calibrated BAM Format File to BED Format File</h3>
 
-<p>Convert the calibrated BAM format file to a BED format file containing read counts at each position:</p>
+<p>Convert the merged calibrated BAM format file to a BED format file containing read counts at each position:</p>
 
 <pre><code>perl countReads3Edge_calibrated.readscount.pl yeast.Ribo.seq_calibrated.bam > inforam_trans.bed positive_strand_info_trans.wig negative_strand_info_trans.wig</code></pre>
 
-<h3>6.2 Convert the BED File to Nucleotide Wave in Transcriptome Mapping Manner</h3>
+<h3>6.2 Convert the BED format File to Nucleotide wise footprint Wave </h3>
 
-<p>Convert the BED file to nucleotide wave in transcriptome mapping manner:</p>
+<p>Convert the BED file to nucleotide wise wave in transcriptome mapping manner:</p>
 
 <pre><code>cat inforam_trans.bed | perl -anle '$F[5] eq "+" and print' | bedtools groupby -g 1 -c 2,5 -o collapse,collapse> Yeast_Riboseq_calbrited.nucle.wave</code></pre>
 
-<h3>6.3 Convert the Transcriptome-Based Nucleotide-Wise Wave to Codon-Wise Wave</h3>
+<h3>6.3 Convert the Nucleotide-Wise footprints Wave to Codon-Wise footprints Wave</h3>
 
 <p>Convert the transcriptome-based nucleotide-wise wave to codon-wise wave:</p>
 
 <pre><code>python nuc2codon.transcriptome.mapping.py yeast.transcriptome.fa yeast_Riboseq_calbrited.nucle.wave yeast_Riboseq_calbrited.codon.wave</code></pre>
 
-<h3>6.4 Select the Most Similar Protein Sequences Compared to AlphaFold</h3>
+<h3>6.4 Select the Most Similar Protein Sequences by Comparing to Sequences from AlphaFold</h3>
 
 <p>Select the most similar protein sequences compared to the protein sequences from AlphaFold:</p>
 
 <pre><code>python multivar_adjust_format_add_codon.py yeast_bowtie_Riboseq.codon.wave yeast.geneid2name.table.txt yeast.genename2uniprot.tab.txt yeast | tee yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon</code></pre>
 
-<h3>6.5 Remove Different Lengths in Ribo-seq Data</h3>
+<h3>6.5 Guarantee the Length of Each Line is Same in Codon-Wise Wave </h3>
 
-<p>Remove different lengths in Ribo-seq data:</p>
+<p>Remove the genes with different lengths of each line in codon wise wave:</p>
 
 <pre><code>python filter.different.length.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length</code></pre>
 
-<h3>6.6 Filter the Low-Reads Ribo-seq Data</h3>
+<h3>6.6 Filter the Genes with Low-Sequencing Coverage in Codon-wise Wave Data</h3>
 
-<p>Filter the low-reads Ribo-seq data:</p>
+<p>Exclude the genes with sequencing coverage less than 60% in codon-wise wave data:</p>
 
 <pre><code>python filter_low_reads_multivarant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60</code></pre>
 
 <h3>6.7 Scale the Ribo-seq Footprints</h3>
 
-<p>Scale the Ribo-seq footprints:</p>
+<p>The codon-wise wave were scaled by the mean coverage within each gene:</p>
 
 <pre><code>python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h1>Determination of Protein Structure Features from AlphaFold</h1>
 
-<h3>1. Download the PDB Format File from AlphaFold Database of Yeast</h3>
+<h3>1. Download all the proteins in the PDB Format from AlphaFold Database for Yeast</h3>
+<p>Access the data at this <a href="https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000002311_559292_YEAST_v4.tar">link</a>.</p>
 
 <h3>1.1 Unzip the file:</p>
 
