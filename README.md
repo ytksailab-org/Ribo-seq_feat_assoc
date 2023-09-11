@@ -272,7 +272,7 @@ done</code></pre>
 
 <p>Make the boxplot in R:</p>
 
-<pre><code>Rscript </code></pre>
+<pre><code>Rscript Boxplot_for_SS.R </code></pre>
 
 <h3>3. Partial Correlation Analysis</h3>
 
