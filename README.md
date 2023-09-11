@@ -212,9 +212,9 @@
   echo $n
 done > output.txt</code></pre>
 
-<h3>2. Extract the Positive Charge and Proline Residue</h3>
+<h3>2. Extract the Positive Charge and Proline Residue for All Proteins in Yeast</h3>
 
-<p>Extract the positive charge and proline residue using the EMBOSS pipinfor tool:</p>
+<p>Extract the positive charge and proline residue using the EMBOSS pepinfo tool:</p>
 
 <pre><code>pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo</code></pre>
 
@@ -232,21 +232,19 @@ done</code></pre>
         python iupred2a.py $f long >/Your/work/path/IDRs_calculate/iupred2a/yeast/$n.txt
 done</code></pre>
 
-<h3>4. Calculate the Local Relative Contact Order and Local Absolute Contact Order</h3>
+<h3>4. Calculate the Local Relative Contact Order and Local Absolute Contact Order for All Proteins</h3>
 
-<p>Calculate the local relative contact order and local absolute contact order:</p>
+<p>Calculate the local relative contact order and local absolute contact order for all proteins in yeast:</p>
 
 <pre><code>perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt</code></pre>
 
 <h1>Association Analysis Between Translation Velocity and Protein Structure Features</h1>
 
-<h3>1. Metagene Analysis</h3>
+<h3>1. Metagene Analysis for Positive Charge and Proline Residue</h3>
 
-<p>Perform metagene analysis:</p>
+<h4>1.1 Merge Charge/Proline Residue and Footprints Together</h4>
 
-<h4>1.1 Merge Charge, Proline, and Reads Together</h4>
-
-<p>Merge charge, proline, and reads together:</p>
+<p>Merge charge/proline and footprints for each gene together:</p>
 
 <pre><code>python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
@@ -261,21 +259,18 @@ done</code></pre>
 <p>Perform metagene analysis for proline residue with a 95% confidence interval:</p>
 <pre><code>python metagene_proline_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<!-- Continue with the rest of your instructions -->
 
 <h3>2. Comparison of Translation Velocity Between Different Secondary Structure Elements in Diverse Organisms</h3>
 
-<p>Compare translation velocity between different secondary structure elements in diverse organisms:</p>
+<h4>2.1 Extract Secondary Structure for All the Proteins in Yeast</h4>
 
-<h4>2.1 Extract Secondary Structure for All the Genes</h4>
-
-<p>Extract secondary structure for all the genes:</p>
+<p>Extract secondary structure for all the proteins in yeast:</p>
 
 <pre><code>python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt</code></pre>
 
 <h4>2.2 Make the Boxplot</h4>
 
-<p>Make the boxplot:</p>
+<p>Make the boxplot in R:</p>
 
 <pre><code>Rscript </code></pre>
 
