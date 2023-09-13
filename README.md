@@ -64,7 +64,7 @@
 <h1>The Example Procedure</h1>
 <p>We use publicly available data published in Pop et al. to illustrate the use of this pipeline.</p>
 
-<h1>Quantification of Translation Velocity from Ribo-seq (R script is modfified from MiMB_ribosome_profiling package Bartholomaus et al. 2021)</h1>
+<h1>Quantification of Translation Velocity from Ribo-seq (R script is modfified from MiMB_ribosome_profiling pipeline in Bartholomaus et al. 2021)</h1>
 
 <h2>1. Ribo-seq Data and Reference Genome Preparation</h2>
 
