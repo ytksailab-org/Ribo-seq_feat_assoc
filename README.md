@@ -8,20 +8,19 @@
 <body>
 
 <h1>VeloPro</h1>
-
-## Here we developed a pipeline: VeloPro to decipher the association pattern between translation velocity and protein structure features in diverse organisms including bacteria, fungi, protozoa, nematode, plants, insect, and mammals
+<p>a pipeline for association analysis of translation velocity and protein structure features in diverse organisms</p>
 
 <h1>Introduction</h1>
-<p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables conducting the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure determination procedures in detail with step-by-step explanations.</p>
+<p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure feature determination procedures with step-by-step explanations.</p>
 
-<h1>Software and Installation</h1>
+<h1>Installation</h1>
 <p><strong>Required Software:</strong></p>
-<p>This pipeline was tested on NIG supercomputer at RIOS National Institute of Genetics. For most of the tools, we installed via conda or bioconda, and the following software is required:</p>
+<p>This pipeline was tested on a Linux-based system with Python 3.7.2 and R 3.5.2. The following packages are required, most of them can be installed via conda or bioconda.</p>
 
 <ul>
   <li>fastq-dump
     <ul>
-      <li>fastq-dump is installed by following the instructions from <a href="https://www.metagenomics.wiki/tools/short-read/ncbi-sra-file-format/sra-tools-install">this link</a></li>
+      <li>Install following the instructions <a href="https://www.metagenomics.wiki/tools/short-read/ncbi-sra-file-format/sra-tools-install">here</a></li>
     </ul>
   </li>
   <li>gffread
@@ -61,7 +60,7 @@
   </li>
 </ul>
 
-<h1>The Example Procedure</h1>
+<h1>Example Procedure</h1>
 <p>We use publicly available data published in Pop et al. to illustrate the use of this pipeline.</p>
 
 <h1>Quantification of Translation Velocity from Ribo-seq (R script is modified from MiMB_ribosome_profiling pipeline in Bartholomaus et al. 2021)</h1>
