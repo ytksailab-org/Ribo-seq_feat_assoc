@@ -61,15 +61,16 @@
 </ul>
 
 <h1>Example Procedure</h1>
-<p>We use publicly available data published in Pop et al. to illustrate the use of this pipeline.</p>
+<p>We use publicly available Ribo-seq data of Saccharomyces cerevisiae in <a href="https://doi.org/10.15252/msb.20145524">Pop et al. 2014</a> to illustrate the use of this pipeline.</p>
 
-<h1>Quantification of Translation Velocity from Ribo-seq (R script is modified from MiMB_ribosome_profiling pipeline in Bartholomaus et al. 2021)</h1>
+<h1>Quantification of Translation Velocity from Ribo-seq data</h1>
+<p>The R scripts used in this step were those modified from <a href="https://github.com/AlexanderBartholomaeus/MiMB_ribosome_profiling"> MiMB_ribosome_profiling pipeline</a> in <a href="https://doi.org/10.1007/978-1-0716-1150-0_12">Bartholomaus et al. 2021</a>.</p>
 
 <h2>1. Ribo-seq Data and Reference Genome Preparation</h2>
 
-<h3>1.1 Download Raw FASTQ Files from NCBI's Sequence Read Archive (SRA)</h3>
+<h3>1.1 Download Raw FASTQ Files from NCBI Sequence Read Archive (SRA)</h3>
 
-<p>To obtain the ribosome-protected footprints of Saccharomyces cerevisiae S288c, you can download the raw reads file using following link and then convert raw data to FASTQ format by the following command:</p>
+<p>To obtain the ribosome-protected footprints (RPF) of Saccharomyces cerevisiae S288c, you can download the raw read file using the following link and then convert the raw data to FASTQ format by the following command:</p>
 
 <p>Access the data at this <a href="https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR1688545/SRR1688545">link</a>.</p>
 
@@ -88,7 +89,7 @@
 
 <h2>2. Ribo-seq Quality Check</h2>
 
-<p>For quality checking the Ribo-seq data, you can use the following command:</p>
+<p>For quality check of Ribo-seq data, you can use the following command:</p>
 
 <pre><code>fastqc -o ./quality_check/ -t 6 ./SRR1688545.fastq.gz</code></pre>
 
@@ -100,19 +101,19 @@
 
 <h2>4. Statistics and Filtering Ribosomal Reads</h2>
 
-<p>Generate an overview of the occurrence of each read length and filter ribosomal reads by length using the following R script:</p>
+<p>Generate an overview of the occurrence of each read length, and filter mapped reads by lengths using the following R script:</p>
 
 <pre><code>Rscript read_length_distribution.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out</code></pre>
 
 <h2>5. Calibration of RPFs</h2>
 
-<h3>5.1 Determine the genes with good expression levels in yeast dataset </h3>
+<h3>5.1 Determine the genes with high expression levels in yeast dataset </h3>
   
-<p>Determine the genes with good expression levels in this yeast dataset:</p>
+<p>Determine the genes with high expression levels in this yeast dataset:</p>
 
 <pre><code>Rscript highest_expressed_genes.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/yeast_Riboseq.sort.bam /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.genome.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 0.1</code></pre>
 
-<h3>5.2 Prepare annotation files to include 50 nucleotides upstream and downstream that start and stop codon region </h3>
+<h3>5.2 Prepare annotation files to include 50 nucleotides upstream and downstream from start and stop codon, respectively</h3>
   
 <p> Prepare the BED file:</p>
 
@@ -148,27 +149,27 @@
 
 <pre><code>Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage</code></pre>
 
-<h2>6. Convert the Calibrated BAM Format File to Scaled Footprints</h2>
+<h2>6. Calculate Scaled Footprints from the Merged Calibrated BAM File</h2>
 
-<h3>6.1 Convert the Merged Calibrated BAM Format File to BED Format File</h3>
+<h3>6.1 Convert the Merged Calibrated BAM File to BED File</h3>
 
-<p>Convert the merged calibrated BAM format file to a BED format file containing read counts at each position:</p>
+<p>Convert the merged calibrated BAM file to a BED file containing read counts at each position:</p>
 
 <pre><code>perl countReads3Edge_calibrated.readscount.pl yeast.Ribo.seq_calibrated.bam > inforam_trans.bed positive_strand_info_trans.wig negative_strand_info_trans.wig</code></pre>
 
-<h3>6.2 Convert the BED format File to Nucleotide wise footprint Wave </h3>
+<h3>6.2 Convert the BED File to Nucleotide-Wise Footprint Wave </h3>
 
-<p>Convert the BED file to nucleotide wise wave in transcriptome mapping manner:</p>
+<p>Convert the BED file to the nucleotide-wise wave in each transcript:</p>
 
 <pre><code>cat inforam_trans.bed | perl -anle '$F[5] eq "+" and print' | bedtools groupby -g 1 -c 2,5 -o collapse,collapse> Yeast_Riboseq_calbrited.nucle.wave</code></pre>
 
-<h3>6.3 Convert the Nucleotide-Wise footprints Wave to Codon-Wise footprints Wave</h3>
+<h3>6.3 Convert the Nucleotide-Wise Footprint Wave to Codon-Wise footprint Wave</h3>
 
-<p>Convert the transcriptome-based nucleotide-wise wave to codon-wise wave:</p>
+<p>Convert the nucleotide-wise wave to the codon-wise wave by summing the footprints in each codon:</p>
 
 <pre><code>python nuc2codon.transcriptome.mapping.py yeast.transcriptome.fa yeast_Riboseq_calbrited.nucle.wave yeast_Riboseq_calbrited.codon.wave</code></pre>
 
-<h3>6.4 Select the Most Similar Protein Sequences by Comparing to Sequences from AlphaFold</h3>
+<h3>6.4 Select the Most Similar Protein Sequences by Comparing to Sequences from AlphaFold database</h3>
 
 <p>Select the most similar protein sequences compared to the protein sequences from AlphaFold:</p>
 
