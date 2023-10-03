@@ -169,13 +169,13 @@
 
 <pre><code>python nuc2codon.transcriptome.mapping.py yeast.transcriptome.fa yeast_Riboseq_calbrited.nucle.wave yeast_Riboseq_calbrited.codon.wave</code></pre>
 
-<h3>6.4 Select the Most Similar Protein Sequences by Comparing to Sequences from AlphaFold database</h3>
+<h3>6.4 Select one isoform for each gene based on the Similarity to Sequences in AlphaFold database</h3>
 
-<p>Select the most similar protein sequences compared to the protein sequences from AlphaFold:</p>
+<p>Select the most similar isoform for each gene by comparing to protein sequences in AlphaFold database:</p>
 
 <pre><code>python multivar_adjust_format_add_codon.py yeast_bowtie_Riboseq.codon.wave yeast.geneid2name.table.txt yeast.genename2uniprot.tab.txt yeast | tee yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon</code></pre>
 
-<h3>6.5 Guarantee the Length of Each Line is Same in Codon-Wise Wave </h3>
+<h3>6.5 Guarantee the Length of the Selected Isoform is the Same as that in AlphaFold database</h3>
 
 <p>Remove the genes with different lengths of each line in codon wise wave:</p>
 
@@ -189,16 +189,16 @@
 
 <h3>6.7 Scale the Ribo-seq Footprints</h3>
 
-<p>The codon-wise wave were scaled by the mean coverage within each gene:</p>
+<p>The codon-wise wave are scaled by the mean coverage within each gene:</p>
 
 <pre><code>python scale_Riboseq_multivariant.add.codon.py yeast.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60 yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h1>Determination of Protein Structure Features from AlphaFold</h1>
+<h1>Determination of Protein Structure Features from AlphaFold database</h1>
 
 <h3>1. Download all the proteins in the PDB Format from AlphaFold Database for Yeast</h3>
 <p>Access the data at this <a href="https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/UP000002311_559292_YEAST_v4.tar">link</a>.</p>
 
-<h3>1.1 Unzip the file:</p>
+<h3>1.1 Unzip the file:</h3>
 
 <pre><code>tar –xvf UP000002311_559292_YEAST_v4.tar</code></pre>
 
