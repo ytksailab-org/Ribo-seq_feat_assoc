@@ -236,9 +236,6 @@ done</code></pre>
 <h3>1. Metagene Analysis for Positive Charge and Proline Residue</h3>
 
 <h4>1.1 Merge Charge/Proline Residue and Footprints Together</h4>
-
-<p>Merge charge/proline and footprints for each gene together:</p>
-
 <pre><code>python merge_charge_reads_each_gene.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>1.2 Metagene Analysis for Positive Charge with 95% Confidence Interval</h4>
