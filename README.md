@@ -108,8 +108,6 @@
 <h2>5. Calibration of RPFs</h2>
 
 <h3>5.1 Determine the genes with high expression levels in yeast dataset </h3>
-  
-<p>Determine the genes with high expression levels in this yeast dataset:</p>
 
 <pre><code>Rscript highest_expressed_genes.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/yeast_Riboseq.sort.bam /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.genome.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 0.1</code></pre>
 
@@ -144,8 +142,6 @@
 <pre><code>Rscript merge_reads.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/</code></pre>
 
 <h3>5.5 Generate a Coverage Plot Using Precisely Calibrated Reads</h3>
-
-<p>Generate a coverage plot using precisely calibrated reads:</p>
 
 <pre><code>Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage</code></pre>
 
@@ -220,8 +216,6 @@ done > output.txt</code></pre>
 
 <h3>3. Calculate the IDR Score for All Proteins in Yeast</h3>
 
-<p>Calculate the IDR score for all proteins in yeast:</p>
-
 <pre><code>for pdb in *.pdb ; do
   fa=`basename $pdb .pdb`.fa
   python pdb2fa.py $pdb $fa
@@ -262,37 +256,19 @@ done</code></pre>
 <h3>2. Comparison of Translation Velocity Between Different Secondary Structure Elements in Diverse Organisms</h3>
 
 <h4>2.1 Extract Secondary Structure for All the Proteins in Yeast</h4>
-
-<p>Extract secondary structure for all the proteins in yeast:</p>
-
 <pre><code>python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt</code></pre>
 
 <h4>2.2 Make the Boxplot</h4>
-
-<p>Make the boxplot in R:</p>
-
 <pre><code>Rscript Boxplot_for_SS.R </code></pre>
 
 <h3>3. Partial Correlation Analysis</h3>
-
-<p>Perform partial correlation analysis:</p>
-
 <h4>3.1 Merge Codon Usage Frequency and Footprints Together for All the Genes</h4>
-
-<p>Merge codon usage frequency and footprints together for all the genes:</p>
-
 <pre><code>python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.2 Merge rASA and Footprints Together for All the Genes</h4>
-
-<p>Merge rASA and footprints together for all the genes:</p>
-
 <pre><code>python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.3 Merge IDRs and Footprints Together for All the Genes</h4>
-
-<p>Merge IDRs (Intrinsically Disordered Regions) and footprints together for all the genes:</p>
-
+<h4>3.3 Merge IDRs(Intrinsically Disordered Regions)and Footprints Together for All the Genes</h4>
 <pre><code>python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.4 Contact Order Normalization</h4>
@@ -301,70 +277,37 @@ done</code></pre>
 
 <pre><code>python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt</code></pre>
 
-<h4>3.5 Merge Normalized Contact Order Normalization and Footprints</h4>
-
-<p>Merge normalized contact order normalization and footprints for all the genes:</p>
-
+<h4>3.5 Merge Normalized Local Contact Order and Footprints for All the Genes</h4>
 <pre><code>python normalized_CO_counts_merge.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.6 Merge Local Relative Contact Order and Footprints</h4>
-
-<p>Merge local relative contact order and footprints for all the genes:</p>
-
+<h4>3.6 Merge Local Relative Contact Order and Footprints for All the Genes</h4>
 <pre><code>python relative_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.7 Merge Local Absolute Contact Order and Footprints</h4>
-
-<p>Merge local absolute contact order and footprints for all the genes:</p>
-
+<h4>3.7 Merge Local Absolute Contact Order and Footprints for All the Genes</h4>
 <pre><code>python absolute_contact_order_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.8 Merge All the Data Together</h4>
-
-<p>Merge all the data together:</p>
-
 <pre><code>python partial_correlation_merge_batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.9 Partial Correlation for Codon Usage Frequency</h4>
-
-<p>Perform partial correlation analysis for codon usage frequency:</p>
-
 <pre><code>python spearman_partial_correlation_nig_codonusage.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.10 Partial Correlation for ASA (Accessible Surface Area)</h4>
-
-<p>Perform partial correlation analysis for ASA:</p>
-
 <pre><code>python spearman_partial_correlation_nig_rASA.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.11 Partial Correlation for IDRs (Intrinsically Disordered Regions)</h4>
-
-<p>Perform partial correlation analysis for IDRs:</p>
-
 <pre><code>python spearman_partial_correlation_nig_idr.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.12 Partial Correlation for Normalized Contact Order</h4>
-
-<p>Perform partial correlation analysis for normalized contact order:</p>
-
+<h4>3.12 Partial Correlation for Normalized Local Contact Order</h4>
 <pre><code>python spearman_partial_correlation_nig_normalizedCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.13 Partial Correlation for Local Relative Contact Order</h4>
-
-<p>Perform partial correlation analysis for local relative contact order:</p>
-
 <pre><code>python spearman_partial_correlation_nig_relativeCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.14 Partial Correlation for Local Absolute Contact Order</h4>
-
-<p>Perform partial correlation analysis for local absolute contact order:</p>
-
 <pre><code>python spearman_partial_correlation_nig_absoluteCO.batch.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.15 One Sample t-test for All the Features</h4>
-
-<p>Perform a one-sample t-test for all the features:</p>
-
 <pre><code>python ttest_for_all.py</code></pre>
 
 
