@@ -95,7 +95,7 @@
 
 <h2>3. Adapter Removal and Transcriptome Mapping</h2>
 
-<p>To perform adapter removal and transcriptome mapping, execute the following R script:</p>
+<p>To perform adapter trimming and transcriptome mapping, execute the following R script:</p>
 
 <pre><code>Rscript mapping.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/ /home/bbian/smORFer_test/MiMB_ribosome_profiling/out /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.transcriptome.fa</code></pre>
 
