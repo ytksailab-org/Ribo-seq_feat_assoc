@@ -8,7 +8,7 @@
 <body>
 
 <h1>VeloPro</h1>
-<p>a pipeline for association analysis of translation velocity and protein structure features in diverse organisms</p>
+<p>A pipeline for association analysis of translation velocity and protein structure features in diverse organisms</p>
 
 <h1>Introduction</h1>
 <p>Translation velocity plays an important role in modulating co-translational protein folding and protein functional integrity. Here we provide an easy-to-use and modifiable pipeline that enables the association analysis between translation velocity and many protein structure features in diverse organisms. This pipeline contains translation velocity quantification procedures and protein structure feature determination procedures with step-by-step explanations.</p>
