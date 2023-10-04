@@ -263,10 +263,7 @@ done</code></pre>
 <h4>3.3 Merge IDRs(Intrinsically Disordered Regions)and Footprints Together for All the Genes</h4>
 <pre><code>python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.4 Contact Order Normalization</h4>
-
-<p>Perform contact order normalization:</p>
-
+<h4>3.4 Local Contact Order Normalization</h4>
 <pre><code>python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt</code></pre>
 
 <h4>3.5 Merge Normalized Local Contact Order and Footprints for All the Genes</h4>
