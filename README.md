@@ -233,7 +233,7 @@ done</code></pre>
 done</code></pre>
 
 <h3>4. Calculate the Local Relative Contact Order and Local Absolute Contact Order for All Proteins</h3>
-<p>The perl scripts used in this step were those modified from <a href="https://depts.washington.edu/bakerpg/contact_order/"> Determine a Protein's Contact Order</a> in <a href="https://doi.org/10.1006/jmbi.1998.1645">Plaxco et al. 1998</a>.</p>
+<p>The perl script used in this step was those modified from <a href="https://depts.washington.edu/bakerpg/contact_order/"> Determine a Protein's Contact Order</a> in <a href="https://doi.org/10.1006/jmbi.1998.1645">Plaxco et al. 1998</a>.</p>
 
 <pre><code>perl contactOrder_local_fast_use.pl $filename 1>$filename.contact.order.fast.use 2>$filename.contact.order.fast.use.progress.txt</code></pre>
 
