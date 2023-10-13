@@ -123,25 +123,27 @@
 
 <pre><code>Rscript split_by_length.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 5prime 27-31</code></pre>
 
-<h3>5.2 Generate Calibration Plots</h3>
+<h3>5.4 Generate Calibration Plots</h3>
 
 <p>Generate plots to calibrate the RPFs:</p>
 
 <pre><code>Rscript calibration_count_plot.R /home/bbian/smORFer_test/MiMB_ribosome_profiling/out/calibration/split_by_length/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/</code></pre>
+<img src="https://github.com/ytksailab-org/VeloPro/blob/main/coverage_yeast.Ribo.seq_calibrated.pdf" alt="GitHub Logo">
 
-<h3>5.3 Calibrate the Reads According to Manually Determined Offsets</h3>
+
+<h3>5.5 Calibrate the Reads According to Manually Determined Offsets</h3>
 
 <p>Calibrate the reads according to manually determined offsets using the calibration_5prime_config.csv file:</p>
 
 <pre><code>Rscript calibrate_reads.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibration_5prime_config.csv /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out</code></pre>
 
-<h3>5.4 Merge Different Read Lengths After Calibration</h3>
+<h3>5.6 Merge Different Read Lengths After Calibration</h3>
 
 <p>Merge different read lengths after calibration into one calibrated BAM format file:</p>
 
 <pre><code>Rscript merge_reads.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/</code></pre>
 
-<h3>5.5 Generate a Coverage Plot Using Precisely Calibrated Reads</h3>
+<h3>5.7 Generate a Coverage Plot Using Precisely Calibrated Reads</h3>
 
 <pre><code>Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage</code></pre>
 
