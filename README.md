@@ -28,6 +28,11 @@
       <li>Install via bioconda: <code>conda install -c bioconda gffread</code></li>
     </ul>
   </li>
+  <li>fastp
+    <ul>
+      <li>Install via bioconda: <code>conda install -c bioconda fastp</code></li>
+    </ul>
+  </li>
   <li>fastqc
     <ul>
       <li>Install via conda: <code>conda install fastqc</code></li>
