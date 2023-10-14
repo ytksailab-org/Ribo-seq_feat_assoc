@@ -255,7 +255,7 @@ done</code></pre>
 
 <h4>1.3 Metagene Analysis for Proline Residue with 95% Confidence Interval</h4>
 <pre><code>python metagene_proline_plot.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
-
+<img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast_proline_metagene_plot.png" alt="GitHub Logo">
 
 <h3>2. Comparison of Translation Velocity Between Different Secondary Structure Elements in Diverse Organisms</h3>
 
