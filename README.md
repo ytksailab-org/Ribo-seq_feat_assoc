@@ -264,6 +264,7 @@ done</code></pre>
 
 <h4>2.2 Make the Boxplot</h4>
 <pre><code>Rscript Boxplot_for_SS.R </code></pre>
+<img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast.SS.Rplot.png" alt="GitHub Logo">
 
 <h3>3. Partial Correlation Analysis</h3>
 <h4>3.1 Merge Codon Usage Frequency and Footprints Together for All the Genes</h4>
