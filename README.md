@@ -100,7 +100,7 @@
 
 <h2>3. Adapter Removal and Transcriptome Mapping</h2>
 
-<p>To perform adapter trimming and transcriptome mapping, execute the following R script(Alert: this step will take more 10 minutes):</p>
+<p>To perform adapter trimming and transcriptome mapping, execute the following R script(Alert: this step will take more than 10 minutes):</p>
 
 <pre><code>Rscript mapping.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/ /home/bbian/smORFer_test/MiMB_ribosome_profiling/out /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.transcriptome.fa</code></pre>
 
@@ -259,7 +259,7 @@ done</code></pre>
 
 <h3>2. Comparison of Translation Velocity Between Different Secondary Structure Elements in Diverse Organisms</h3>
 
-<h4>2.1 Extract Secondary Structure for All the Proteins in Yeast</h4>
+<h4>2.1 Extract Secondary Structure for All the Proteins in Yeast (Alert: this step may take more than 10 minutes)</h4>
 <pre><code>python collect_allresidue_ASA_ss_multvariant.new2.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all yeast.extract_SS_relativeASA.txt</code></pre>
 
 <h4>2.2 Make the Boxplot</h4>
