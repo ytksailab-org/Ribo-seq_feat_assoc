@@ -226,7 +226,7 @@ done > output.txt</code></pre>
 
 <pre><code>pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo</code></pre>
 
-<h3>3. Calculate the IDR Score for All Proteins in Yeast</h3>
+<h3>3. Calculate the IDR Score (is defined as sequence segments that do not form specific 3D structures) for All Proteins in Yeast</h3>
 
 <pre><code>for pdb in *.pdb ; do
   fa=`basename $pdb .pdb`.fa
@@ -270,13 +270,13 @@ done</code></pre>
 <h4>3.1 Merge Codon Usage Frequency and Footprints Together for All the Genes</h4>
 <pre><code>python codon_usage_analysis_withoutAMBIGUOUS_CODON.py yeast.codon.usage.table.txt yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.2 Merge rASA and Footprints Together for All the Genes</h4>
+<h4>3.2 Merge rASA (A measure of the solvent molecule contact of amino acid residues in a protein) and Footprints Together for All the Genes</h4>
 <pre><code>python ASA_single_gene_correlation_multivariant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
 <h4>3.3 Merge IDRs(Intrinsically Disordered Regions)and Footprints Together for All the Genes</h4>
 <pre><code>python merge_idrs_reads_nig.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all</code></pre>
 
-<h4>3.4 Local Contact Order Normalization</h4>
+<h4>3.4 Local Contact Order(A measure of the locality of the inter-amino acid contacts in the protein's native state tertiary structure) Normalization </h4>
 <pre><code>python normalized_CO_multivarant.py yeast.scaled.bowtie.Riboseq.codon.wave.adjusted.format.add.codon.filter.different.length.higher60.removed.all out 2> log.txt</code></pre>
 
 <h4>3.5 Merge Normalized Local Contact Order and Footprints for All the Genes</h4>
