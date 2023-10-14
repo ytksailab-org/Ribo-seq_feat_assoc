@@ -158,7 +158,7 @@
 
 <h3>6.2 Convert the BED File to Nucleotide-Wise Footprint Wave </h3>
 
-<p>Convert the BED file to the nucleotide-wise wave in each transcript:</p>
+<p>Most reads should be mapped to the sense strand as the Ribo-seq library is strand-specific. Therefore, in transcriptome mapping, reads mapped to the minus strand should be considered as errors. Consequently, we only select reads marked with a '+' for analysis. Convert the BED file to the nucleotide-wise wave in each transcript:</p>
 
 <pre><code>cat inforam_trans.bed | perl -anle '$F[5] eq "+" and print' | bedtools groupby -g 1 -c 2,5 -o collapse,collapse> Yeast_Riboseq_calbrited.nucle.wave</code></pre>
 
