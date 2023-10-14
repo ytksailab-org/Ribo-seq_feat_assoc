@@ -226,7 +226,7 @@ done > output.txt</code></pre>
 
 <pre><code>pepinfo -sequence $filename -graph ps -outfile $filename.pepinfo</code></pre>
 
-<h3>3. Calculate the IDR Score (is defined as sequence segments that do not form specific 3D structures) for All Proteins in Yeast</h3>
+<h3>3. Calculate the IDR (is defined as sequence segments that do not form specific 3D structures) Score for All Proteins in Yeast</h3>
 
 <pre><code>for pdb in *.pdb ; do
   fa=`basename $pdb .pdb`.fa
