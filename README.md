@@ -104,6 +104,10 @@
 
 <pre><code>Rscript mapping.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/ /home/bbian/smORFer_test/MiMB_ribosome_profiling/out /Your/work/path/smORFer_test/MiMB_ribosome_profiling/example_data/genome_data/yeast.transcriptome.fa</code></pre>
 
+<p> Another option for adapters removal by using fastp:</p>
+
+<pre><code> fastp --adapter_sequence AGATCGGAAGAGCACACGTCT </code></pre>
+
 <h2>4. Statistics and Filtering Ribosomal Reads</h2>
 
 <p>Generate an overview of the occurrence of each read length, and filter mapped reads by lengths using the following R script:</p>
