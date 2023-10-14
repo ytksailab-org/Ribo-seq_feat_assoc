@@ -128,7 +128,7 @@
 <p>Generate plots to calibrate the RPFs:</p>
 
 <pre><code>Rscript calibration_count_plot.R /home/bbian/smORFer_test/MiMB_ribosome_profiling/out/calibration/split_by_length/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/</code></pre>
-<img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast_calibrated_plot.png" alt="GitHub Logo">
+<img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast_to_calibrate_plot.png" alt="GitHub Logo">
 
 
 <h3>5.5 Calibrate the Reads According to Manually Determined Offsets</h3>
