@@ -30,7 +30,7 @@ my_comparisons = list(c("Coil", "Beta-sheet"), c("Coil", "Alpha-helix"))
                 
 
 p4<-ggplot(correlationlog_ss_use, aes(x = Secondary_Structure, y = Log_Normalized_ReadsCount,col=Secondary_Structure, fill = Secondary_Structure)) +
-  geom_boxplot(alpha=0.8)+stat_compare_means(comparisons = my_comparisons)+labs(title = "Rat")+ 
+  geom_boxplot(alpha=0.8)+stat_compare_means(comparisons = my_comparisons)+labs(title = "yeast")+ 
   theme(plot.title=element_text(hjust=0.5))+ylab("Logarithm Scaled Footprint")+ xlab("Protein Secondary Structure")
 
 
