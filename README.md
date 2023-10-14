@@ -146,6 +146,7 @@
 <h3>5.7 Generate a Coverage Plot Using Precisely Calibrated Reads</h3>
 
 <pre><code>Rscript coverage_start_stop.original.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibration/calibrated/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/highest_expressed_genes/highest_expressed_genes_plus_50nt.bed /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/calibrated_coverage</code></pre>
+<img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast_calibrated_plot.png" alt="GitHub Logo">
 
 <h2>6. Calculate Scaled Footprints from the Merged Calibrated BAM File</h2>
 
