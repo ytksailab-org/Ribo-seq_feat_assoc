@@ -128,7 +128,7 @@
 
 <h3>5.3 Split Reads by Length and Assign 5' End</h3>
 
-<p>The offset varies with different read lengths, for accurate calibration, it is essential to split the reads based on their lengths. Split reads by length and perform 5' assignment for read lengths of 27 to 31 nucleotides:</p>
+<p>As suggested by the original pipeline <a href="https://github.com/AlexanderBartholomaeus/MiMB_ribosome_profiling"> MiMB_ribosome_profiling pipeline</a> in <a href="https://doi.org/10.1007/978-1-0716-1150-0_12">Bartholomaus et al. 2021</a>, the offset values for calibration may vary depending on different read lengths. Thus, we first split the reads based on their lengths. To split reads by length and perform 5' assignment for read lengths of 27 to 31 nucleotides:</p>
 
 <pre><code>Rscript split_by_length.R /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/mapping/ /Your/work/path/smORFer_test/MiMB_ribosome_profiling/out/ 5prime 27-31</code></pre>
 
