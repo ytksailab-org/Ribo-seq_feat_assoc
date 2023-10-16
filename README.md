@@ -66,7 +66,7 @@
 </ul>
 
 <h1>Example Procedure</h1>
-<p>We use publicly available Ribo-seq data of Saccharomyces cerevisiae in <a href="https://doi.org/10.15252/msb.20145524">Pop et al. 2014</a> to illustrate the use of this pipeline.</p>
+<p>We use publicly available Ribo-seq data of Saccharomyces cerevisiae in <a href="https://doi.org/10.15252/msb.20145524">Pop et al. 2014</a> to illustrate the use of this pipeline. Other organisms can be analyzed in a similar way given the corresponding Ribo-seq data.</p>
 
 <h1>Quantification of Translation Velocity from Ribo-seq data</h1>
 <p>The R scripts used in this step were those modified from <a href="https://github.com/AlexanderBartholomaeus/MiMB_ribosome_profiling"> MiMB_ribosome_profiling pipeline</a> in <a href="https://doi.org/10.1007/978-1-0716-1150-0_12">Bartholomaus et al. 2021</a>.</p>
