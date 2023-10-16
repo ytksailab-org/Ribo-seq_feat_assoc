@@ -264,6 +264,7 @@ done</code></pre>
 
 <h4>2.2 Make the Boxplot</h4>
 <pre><code>Rscript Boxplot_for_SS.R </code></pre>
+In this script, we hard-code the input and output filenames. Please modify the script as necessary for the use in your environment. An example box plot looks like below:
 <img src="https://github.com/ytksailab-org/VeloPro/blob/main/yeast.SS.Rplot.png" alt="GitHub Logo">
 
 <h3>3. Partial Correlation Analysis</h3>
