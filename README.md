@@ -10,7 +10,7 @@
 <h1>VeloPro</h1>
 <p>A pipeline for association analysis of translation velocity and protein structure features in diverse organisms</p>
 
-[![视频截图](https://i9.ytimg.com/vi/DA8MI_CFrB8/mq1.jpg?sqp=CIDL4qkG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCggYyhyMA8=&rs=AOn4CLCUpwnoE9dASLYE4D0YBILpe95apQ)](https://www.youtube.com/watch?v=DA8MI_CFrB8)
+[![视频截图](https://i9.ytimg.com/vi/DA8MI_CFrB8/mqdefault.jpg?v=6538a8d2&sqp=CNjP4qkG&rs=AOn4CLDuWxa73Ze6DVLcYyJFERuYwYV7RQ)](https://www.youtube.com/watch?v=DA8MI_CFrB8)
 
 
 
